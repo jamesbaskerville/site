@@ -1,9 +1,9 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-full.svg"
-    >
+    <q-btn
+      label="Do something"
+      @click="$q.notify('something')"
+    />
   </q-page>
 </template>
 

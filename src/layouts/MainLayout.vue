@@ -2,44 +2,27 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
-
+        <q-btn to="/" flat dense icon="chevron_right" />
         <q-toolbar-title>
-          Quasar App
+              james baskerville
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
-        <div v-ripple>Click Me</div>
+        <q-tabs align="center" dense breakpoint="0">
+          <q-route-tab
+            name="code"
+            label="code"
+            to="/code"
+            exact
+          />
+          <q-route-tab
+            name="music"
+            label="music"
+            to="/music"
+            exact
+          />
+        </q-tabs>
       </q-toolbar>
     </q-header>
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-grey-1"
-    >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -48,54 +31,25 @@
 </template>
 
 <script>
-import EssentialLink from 'components/EssentialLink';
-
 export default {
   name: 'MainLayout',
 
-  components: {
-    EssentialLink,
-  },
+  components: {},
 
   data() {
     return {
-      leftDrawerOpen: false,
-      essentialLinks: [
-        {
-          title: 'Docs',
-          caption: 'quasar.dev',
-          icon: 'school',
-          link: 'https://quasar.dev',
-        },
+      links: [
         {
           title: 'Github',
-          caption: 'github.com/quasarframework',
+          caption: 'github.com/jamesbaskerville',
           icon: 'code',
-          link: 'https://github.com/quasarframework',
+          link: 'https://github.com/jamesbaskerville',
         },
         {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev',
-        },
-        {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev',
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev',
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev',
+          title: 'LibFasc Game',
+          caption: 'jamesbaskerville.github.io/libfasc',
+          icon: 'play_arrow',
+          link: 'https://jamesbaskerville.github.io/libfasc',
         },
       ],
     };
